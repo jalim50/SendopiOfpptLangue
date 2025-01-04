@@ -1,0 +1,28 @@
+name: Run OFPPT Script
+
+on:
+  workflow_dispatch:  # تشغيل الأكشن يدويًا عند الحاجة فقط
+
+jobs:
+  run_script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3  # تنزيل الكود من المستودع
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'  # اختيار إصدار Python
+        
+      - name: Install Chrome
+        run: sudo apt-get install google-chrome-stable
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install selenium undetected-chromedriver webdriver-manager
+
+      - name: Run the script
+        run: python main.py  # استبدلي "main.py" باسم ملف السكربت الخاص بك
