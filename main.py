@@ -133,12 +133,19 @@ def main():
                 continue
 
             click_element_with_css_selector(driver,'#VOCABULARY > ul > li:nth-child(1) > a > p')
-            click_element_with_css_selector(driver,'#theme-provider > div.c-bUvWKu > main > div > div:nth-child(3) > div > a:nth-child(1) > div')  
-            click_element_with_css_selector(driver,'#theme-provider > div.c-bUvWKu > main > div > ul.c-dYOPMy > li:nth-child(1) > a > div')
-            click_element_with_css_selector(driver,'#theme-provider > div.c-bUvWKu > main > div > div > div.c-bQzyIt.c-bQzyIt-kqOPqT-alignContent-start.c-bQzyIt-ddIBXx-gap-4 > div > div > button')
-            wait_video(driver)
+            for i in range(1,6):
+                click_element_with_css_selector(driver,f'#theme-provider > div.c-bUvWKu > main > div > div:nth-child(3) > div > a:nth-child({i})')
+                click_element_with_css_selector(driver,'#theme-provider > div.c-bUvWKu > main > div > ul.c-dYOPMy > li:nth-child(1)')
+                click_element_with_css_selector(driver,'#theme-provider > div.c-bUvWKu > main > div > div > div.c-bQzyIt.c-bQzyIt-kqOPqT-alignContent-start.c-bQzyIt-ddIBXx-gap-4 > div > div > button')
+                skip_video(driver)
+                click_element_with_css_selector(driver,'#theme-provider > div.c-bUvWKu > main > div > div.c-UazGY.c-UazGY-hySSfO-gap-12')
+                click_element_with_css_selector(driver,'#theme-provider > div.c-bUvWKu > main > div > ul.c-dXWjRp > li:nth-child(2)')
+            click_element_with_css_selector(driver,'#theme-provider > div.c-bUvWKu > main > div > ul.c-dXWjRp > li:nth-child(1)')
+
+                
             n+=1
             print(n)
+            
             
 
 
