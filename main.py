@@ -45,8 +45,10 @@ def login(driver, email, password):
         send_key(driver, '//*[@id="i0118"]', password)
         click_element_with_mouse(driver, '//*[@id="idSIButton9"]')
         click_element_with_mouse(driver, '//*[@id="idSIButton9"]')
+        print('we  login into the account ')
         
     except Exception as e:
+        print('login error')
         print("Current Time:",  time.strftime("%H:%M:%S", time.localtime()))
         print(f"Error in login: {e}")
         
@@ -129,8 +131,8 @@ def main():
             if driver.current_url == "https://app.ofppt-langues.ma/platform/discover":
                 print("we got the page !")
             else:
-                print("we did not get the page:",  time.strftime("%H:%M:%S", time.localtime()))
-                time.sleep(10)
+                print(f"we did not get the page the current page is : {driver.current_url}",  time.strftime("%H:%M:%S", time.localtime()))
+                time.sleep(20)
                 driver.get("https://app.ofppt-langues.ma/platform/discover")
                 continue
 
