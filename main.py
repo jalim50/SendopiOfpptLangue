@@ -119,9 +119,10 @@ def main():
     try:
         
         login(driver, gmail, modpass)
-        time.sleep(15)
+        time.sleep(60)
                
         n=0
+        driver.get("https://app.ofppt-langues.ma/platform/discover")
         while True:
             # تحقق من أن الرابط الحالي هو الرابط المطلوب
             if driver.current_url == "https://app.ofppt-langues.ma/platform/discover":
