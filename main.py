@@ -120,7 +120,8 @@ def main():
         
         login(driver, gmail, modpass)
         time.sleep(60)
-               
+        driver.get("https://www.google.com")
+        time.sleep(40)
         n=0
         driver.get("https://app.ofppt-langues.ma/platform/discover")
         while True:
@@ -128,7 +129,7 @@ def main():
             if driver.current_url == "https://app.ofppt-langues.ma/platform/discover":
                 print("we got the page !")
             else:
-                print("Current Time:",  time.strftime("%H:%M:%S", time.localtime()))
+                print("we did not get the page:",  time.strftime("%H:%M:%S", time.localtime()))
                 time.sleep(10)
                 driver.get("https://app.ofppt-langues.ma/platform/discover")
                 continue
