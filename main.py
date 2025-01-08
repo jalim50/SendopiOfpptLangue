@@ -40,11 +40,17 @@ def setup_driver():
 def login(driver, email, password):
     try:
         driver.get("https://app.ofppt-langues.ma/gw/api/saml/init?idp=https://sts.windows.net/dae54ad7-43df-47b7-ae86-4ac13ae567af/")
+        time.sleep(1)
         send_key(driver, '//*[@id="i0116"]', email)
-        click_element_with_mouse(driver, '//*[@id="idSIButton9"]')
+        time.sleep(1)
+        click_element_with_css_selector(driver,'#idSIButton9')
+        time.sleep(1)
         send_key(driver, '//*[@id="i0118"]', password)
-        click_element_with_mouse(driver, '//*[@id="idSIButton9"]')
-        click_element_with_mouse(driver, '//*[@id="idSIButton9"]')
+        time.sleep(1)
+        click_element_with_css_selector(driver,'#idSIButton9')
+        time.sleep(1)
+        click_element_with_css_selector(driver,'#idSIButton9')
+        time.sleep(1)
         print('we  login into the account ')
         
     except Exception as e:
