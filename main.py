@@ -162,9 +162,10 @@ def main():
     print("welcom to jalim script")
     try:
         # login(driver, gmail, modpass)
-        time.sleep(15)
+        
         
         driver.get("https://app.ofppt-langues.ma/platform/discover")
+        time.sleep(15)
         n=0
         while True:
             # تحقق من أن الرابط الحالي هو الرابط المطلوب
