@@ -138,8 +138,10 @@ def main():
                 print("we got the page !")
             else:
                 print(f"we did not get the page the current page is : {driver.current_url}",  time.strftime("%H:%M:%S", time.localtime()))
+                
                 time.sleep(20)
                 driver.get("https://app.ofppt-langues.ma/platform/discover")
+                click_element_with_css_selector(driver,'#theme-provider > div.c-bUvWKu > header > nav > ul > li:nth-child(2) > a')
                 continue
 
             click_element_with_css_selector(driver,'#VOCABULARY > ul > li:nth-child(1) > a > p')
