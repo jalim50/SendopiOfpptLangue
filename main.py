@@ -184,6 +184,7 @@ def main():
 
             for lesson in lessons:
                 n=0
+                print('we login')
                 click_element_with_css_selector(driver, lesson)
 
                 # التعامل مع الدروس
