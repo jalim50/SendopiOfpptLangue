@@ -113,7 +113,7 @@ def wait_video(driver):
         driver.execute_script("arguments[0].play();", video)
         time.sleep(video_duration+1)
     except Exception as e:
-        print(f"Error in skip_video: {e}")
+        print(f"Error in wait_video: {e}")
 
 
     
@@ -182,6 +182,7 @@ def main():
                 click_element_with_css_selector(driver,f'#theme-provider > div.c-bUvWKu > main > div > div:nth-child(3) > div > a:nth-child({i})')
                 click_element_with_css_selector(driver,'#theme-provider > div.c-bUvWKu > main > div > ul.c-dYOPMy > li:nth-child(1)')
                 click_element_with_css_selector(driver,'#theme-provider > div.c-bUvWKu > main > div > div > div.c-bQzyIt.c-bQzyIt-kqOPqT-alignContent-start.c-bQzyIt-ddIBXx-gap-4 > div > div > button')
+                time.sleep(5)
                 wait_video(driver)
                 click_element_with_css_selector(driver,'#theme-provider > div.c-bUvWKu > main > div > div.c-UazGY.c-UazGY-hySSfO-gap-12')
                 click_element_with_css_selector(driver,'#theme-provider > div.c-bUvWKu > main > div > ul.c-dXWjRp > li:nth-child(2)')
