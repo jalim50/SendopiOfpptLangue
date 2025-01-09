@@ -22,7 +22,7 @@ import time
 import random
 
 def setup_driver():
-    user_data_dir = r"C:\Users\moham\AppData\Local\Google\Chrome\chrome_user_data"
+    user_data_dir = r"chrome_user_data"
     options = webdriver.ChromeOptions()
     options.add_argument(f"--user-data-dir={user_data_dir}")  # استخدام مجلد ملف تعريف المستخدم
     # options.add_argument("--profile-directory=Default")  # تحديد ملف التعريف الافتراضي
@@ -161,7 +161,7 @@ def main():
     driver = setup_driver()
     print("welcom to jalim script")
     try:
-        login(driver, gmail, modpass)
+        # login(driver, gmail, modpass)
         time.sleep(15)
         lessons=[]
         for i in range(1,19):
