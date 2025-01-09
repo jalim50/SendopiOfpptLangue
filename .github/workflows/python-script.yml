@@ -24,5 +24,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install selenium undetected-chromedriver webdriver-manager
 
+      - name: Unzip chrome_user_data.zip
+        run: unzip chrome_user_data.zip -d chrome_user_data
+
       - name: Run the script
         run: python main.py  # استبدلي "main.py" باسم ملف السكربت الخاص بك
