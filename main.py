@@ -164,7 +164,7 @@ def main():
         # login(driver, gmail, modpass)
         
         lessons=[]
-        for i in range(1,19):
+        for i in range(1,3):
             lesson=f'#VOCABULARY > ul > li:nth-child({i})'
             lessons.append(lesson)
         
@@ -183,8 +183,6 @@ def main():
 
 
             for lesson in lessons:
-                if lesson==lessons[2]:
-                    break
                 n=0
                 click_element_with_css_selector(driver, lesson)
 
