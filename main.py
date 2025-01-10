@@ -193,7 +193,7 @@ def main():
                 for tip in tip_selectors:
                     click_element_with_css_selector(driver, tip)
                     click_element_with_css_selector(driver, '#theme-provider > div.c-bUvWKu > main > div > ul.c-dYOPMy > li:nth-child(1)')
-                    skip_video(driver)
+                    wait_video(driver)
                     click_element_with_mouse(driver, '//*[@id="theme-provider"]/div[1]/main/div/div[2]/a')
                     click_element_with_css_selector(driver,'#theme-provider > div.c-bUvWKu > main > div > ul.c-dXWjRp > li:nth-child(2)')
                     n+=1
