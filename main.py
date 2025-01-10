@@ -183,6 +183,8 @@ def main():
 
 
             for lesson in lessons:
+                if lesson==lessons[2]:
+                    continue
                 n=0
                 click_element_with_css_selector(driver, lesson)
 
