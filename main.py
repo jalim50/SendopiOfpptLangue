@@ -163,34 +163,42 @@ def main():
     try:
         # login(driver, gmail, modpass)
         
+        lessons=[]
+        for i in range(1,19):
+            lesson=f'#VOCABULARY > ul > li:nth-child({i})'
+            lessons.append(lesson)
         
-        driver.get("https://app.ofppt-langues.ma/platform/discover")
-        time.sleep(15)
-        n=0
+        
         while True:
+            driver.get('https://app.ofppt-langues.ma/gw/api/saml/init?idp=https://sts.windows.net/dae54ad7-43df-47b7-ae86-4ac13ae567af/')
+            time.sleep(10)
+            driver.get("https://app.ofppt-langues.ma/platform/discover")
+            time.sleep(3)
             # تحقق من أن الرابط الحالي هو الرابط المطلوب
             if driver.current_url == "https://app.ofppt-langues.ma/platform/discover":
                 print("we got the page !")
             else:
-                print("Current Time:",  time.strftime("%H:%M:%S", time.localtime()))
-                time.sleep(10)
-                driver.get("https://app.ofppt-langues.ma/platform/discover")
+                print(f"the current page is: {driver.current_url}")
                 continue
 
-            click_element_with_css_selector(driver,'#VOCABULARY > ul > li:nth-child(1) > a > p')
-            for i in range(1,6):
-                click_element_with_css_selector(driver,f'#theme-provider > div.c-bUvWKu > main > div > div:nth-child(3) > div > a:nth-child({i})')
-                click_element_with_css_selector(driver,'#theme-provider > div.c-bUvWKu > main > div > ul.c-dYOPMy > li:nth-child(1)')
-                click_element_with_css_selector(driver,'#theme-provider > div.c-bUvWKu > main > div > div > div.c-bQzyIt.c-bQzyIt-kqOPqT-alignContent-start.c-bQzyIt-ddIBXx-gap-4 > div > div > button')
-                time.sleep(5)
-                wait_video(driver)
-                click_element_with_css_selector(driver,'#theme-provider > div.c-bUvWKu > main > div > div.c-UazGY.c-UazGY-hySSfO-gap-12')
-                click_element_with_css_selector(driver,'#theme-provider > div.c-bUvWKu > main > div > ul.c-dXWjRp > li:nth-child(2)')
-            click_element_with_css_selector(driver,'#theme-provider > div.c-bUvWKu > main > div > ul.c-dXWjRp > li:nth-child(1)')
 
-                
-            n+=1
-            print(n)
+            for lesson in lessons:
+                n=0
+                click_element_with_css_selector(driver, lesson)
+
+                # التعامل مع الدروس
+                tip_selectors = get_all_elements(driver, '#theme-provider > div.c-bUvWKu > main > div > div:nth-child(3) > div')
+                for tip in tip_selectors:
+                    click_element_with_css_selector(driver, tip)
+                    click_element_with_css_selector(driver, '#theme-provider > div.c-bUvWKu > main > div > ul.c-dYOPMy > li:nth-child(1)')
+                    skip_video(driver)
+                    click_element_with_mouse(driver, '//*[@id="theme-provider"]/div[1]/main/div/div[2]/a')
+                    click_element_with_css_selector(driver,'#theme-provider > div.c-bUvWKu > main > div > ul.c-dXWjRp > li:nth-child(2)')
+                    n+=1
+                    print(n)
+                    if tip==tip_selectors[-1]:
+                        click_element_with_css_selector(driver,'#theme-provider > div.c-bUvWKu > main > div > ul.c-dXWjRp > li:nth-child(1)')
+                        print('done!')
     except Exception as e:
         print(f"Error in main loop: {e}")
     finally:
