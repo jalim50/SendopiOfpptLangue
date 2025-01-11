@@ -164,7 +164,7 @@ def main():
         # login(driver, gmail, modpass)
         
         lessons=[]
-        for i in range(1,3):
+        for i in range(1,2):
             lesson=f'#VOCABULARY > ul > li:nth-child({i})'
             lessons.append(lesson)
         
