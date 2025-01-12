@@ -192,6 +192,7 @@ def main():
                     click_element_with_css_selector(driver, tip)
                     click_element_with_css_selector(driver, '#theme-provider > div.c-bUvWKu > main > div > ul.c-dYOPMy > li:nth-child(1)')
                     wait_video(driver)
+                    time.sleep(21600)
                     click_element_with_mouse(driver, '//*[@id="theme-provider"]/div[1]/main/div/div[2]/a')
                     click_element_with_css_selector(driver,'#theme-provider > div.c-bUvWKu > main > div > ul.c-dXWjRp > li:nth-child(2)')
                     n+=1
