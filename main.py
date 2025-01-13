@@ -106,14 +106,17 @@ def skip_video(driver):
         print(f"Error in skip_video: {e}")
 
 def wait_video(driver):
-    try:
-        video =  WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.CSS_SELECTOR, '#theme-provider > div.c-bUvWKu > main > div > div > div.c-bQzyIt.c-bQzyIt-kqOPqT-alignContent-start.c-bQzyIt-ddIBXx-gap-4 > div > div > div.plyr__video-wrapper > video')))
-        time.sleep(random.uniform(2, 5))
-        video_duration = driver.execute_script("return arguments[0].duration;", video)
-        driver.execute_script("arguments[0].play();", video)
-        time.sleep(video_duration+1)
-    except Exception as e:
-        print(f"Error in wait_video: {e}")
+    while True:
+        try:
+            video =  WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.CSS_SELECTOR, '#theme-provider > div.c-bUvWKu > main > div > div > div.c-bQzyIt.c-bQzyIt-kqOPqT-alignContent-start.c-bQzyIt-ddIBXx-gap-4 > div > div > div.plyr__video-wrapper > video')))
+            time.sleep(random.uniform(2, 5))
+            video_duration = driver.execute_script("return arguments[0].duration;", video)
+            driver.execute_script("arguments[0].play();", video)
+            time.sleep(video_duration+1)
+            break
+        except Exception as e:
+            print(f"Error in wait_video: {e}")
+            continue
 
 
     
@@ -164,7 +167,7 @@ def main():
         # login(driver, gmail, modpass)
         
         lessons=[]
-        for i in range(1,2):
+        for i in range(1,19):
             lesson=f'#VOCABULARY > ul > li:nth-child({i})'
             lessons.append(lesson)
         
