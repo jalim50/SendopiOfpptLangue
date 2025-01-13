@@ -170,7 +170,6 @@ def main():
         
         
         while True:
-            driver.get('https://app.ofppt-langues.ma/gw/api/saml/init?idp=https://sts.windows.net/dae54ad7-43df-47b7-ae86-4ac13ae567af/')
             time.sleep(10)
             driver.get("https://app.ofppt-langues.ma/platform/discover")
             time.sleep(3)
@@ -192,7 +191,6 @@ def main():
                     click_element_with_css_selector(driver, tip)
                     click_element_with_css_selector(driver, '#theme-provider > div.c-bUvWKu > main > div > ul.c-dYOPMy > li:nth-child(1)')
                     wait_video(driver)
-                    time.sleep(21600)
                     click_element_with_mouse(driver, '//*[@id="theme-provider"]/div[1]/main/div/div[2]/a')
                     click_element_with_css_selector(driver,'#theme-provider > div.c-bUvWKu > main > div > ul.c-dXWjRp > li:nth-child(2)')
                     n+=1
